@@ -1,0 +1,16 @@
+.dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  width: 28px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--bg-raised);
+  transition: background 0.2s ease;
+}
+
+.done   { background: #22c55e; }
+.active { background: #6366f1; }

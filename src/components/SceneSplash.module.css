@@ -1,0 +1,58 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  z-index: 10;
+  transition: opacity 0.18s ease;
+  border-radius: var(--radius-lg);
+}
+
+.in  { opacity: 1; }
+.out { opacity: 0; pointer-events: none; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.sceneNum {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-dim);
+}
+
+.icon {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.label {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.diff {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.easy {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.hard {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}

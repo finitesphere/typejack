@@ -1,0 +1,35 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  position: relative;
+}
+
+.gameWrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  gap: .75rem;
+  min-height: 560px;
+}
+
+.sceneArea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: .25rem;
+}
+
+.sceneMeta {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-dim);
+  margin-top: .25rem;
+}

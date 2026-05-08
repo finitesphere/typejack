@@ -1,0 +1,110 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  gap: 1.25rem;
+  padding: 2rem 1rem;
+}
+
+.logo {
+  display: flex;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  cursor: default;
+  user-select: none;
+}
+
+.logoChar {
+  display: inline-block;
+  color: var(--text-dim);
+  transition: color 0.1s, transform 0.1s;
+}
+
+.logoCharCorrect {
+  color: var(--success);
+  animation: correctPop 0.15s ease-out;
+}
+
+.logoCharCurrent {
+  color: var(--text);
+}
+
+@keyframes correctPop {
+  0%   { transform: scale(1.4) translateY(-4px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.typeHint {
+  font-size: 13px;
+  color: var(--text-dim);
+  letter-spacing: .04em;
+}
+
+.logoUnlocked {
+  display: flex;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  user-select: none;
+}
+
+.logoCharUnlocked {
+  display: inline-block;
+  color: var(--success);
+  /* animation: jumpAt 2s ease-in-out infinite; */
+}
+
+@keyframes jumpAt {
+  0%   { transform: scale(1) translateY(0); }
+  40%  { transform: scale(1.4) translateY(-8px); }
+  55%  { transform: scale(0.95) translateY(2px); }
+  70%  { transform: scale(1.05) translateY(-2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.tagline {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  gap: 14px;
+  margin: .5rem 0;
+}
+
+.card {
+  width: 180px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: border-color .15s, transform .1s;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.cardAccent { border-color: rgba(99,102,241,.4); }
+.cardAccent:hover { border-color: var(--accent); }
+
+.cardIcon  { font-size: 28px; }
+.cardTitle { font-size: 16px; font-weight: 500; color: var(--text); }
+.cardDesc  { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+.hint {
+  font-size: 12px;
+  color: var(--text-dim);
+}

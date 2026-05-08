@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+
+.rsWrap { display: flex; justify-content: center; }
+
+.rsFrame {
+  width: 516px;
+  background: #000;
+  border: 3px solid #4a3728;
+  font-family: 'Tiny5', monospace;
+}
+
+/* ── Viewport ── */
+.viewport {
+  width: 100%; height: 240px;
+  background: #2d5a1e;
+  position: relative; overflow: hidden;
+}
+
+.grass {
+  position: absolute; inset: 0;
+  background-color: #2d5a1e;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0px, rgba(0,0,0,.06) 1px, transparent 1px, transparent 32px),
+    repeating-linear-gradient(0deg,  rgba(0,0,0,.06) 0px, rgba(0,0,0,.06) 1px, transparent 1px, transparent 32px);
+}
+
+/* ── Trees ── */
+.tree { position: absolute; width: 20px; height: 32px; }
+.treeTrunk {
+  position: absolute; bottom: 0; left: 7px;
+  width: 6px; height: 12px; background: #5c3a1e;
+}
+.treeLeaves {
+  position: absolute; bottom: 10px; left: 0;
+  width: 20px; height: 22px; background: #1a6b1a;
+  clip-path: polygon(50% 0%, 100% 60%, 80% 60%, 100% 100%, 0% 100%, 20% 60%, 0% 60%);
+}
+
+/* ── Rocks ── */
+.rock {
+  position: absolute;
+  width: 18px; height: 12px;
+  background: #888;
+  clip-path: polygon(15% 100%, 0% 55%, 20% 10%, 80% 10%, 100% 55%, 85% 100%);
+}
+
+/* ── NPC ── */
+.npc { position: absolute; width: 12px; height: 20px; }
+.npcHpBar {
+  position: absolute; top: -22px; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 4px; background: #500;
+}
+.npcHpFill { width: 35%; height: 100%; background: #0f0; }
+.npcName {
+  position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px; color: #ff9040; white-space: nowrap;
+  text-shadow: 1px 1px 0 #000;
+}
+.npcHead { width: 10px; height: 8px; background: #c0392b; margin: 0 auto; border: 1px solid #922b21; }
+.npcBody { width: 12px; height: 8px; background: #7b241c; border: 1px solid #5b1a13; margin: 0 auto; }
+
+/* ── Player ── */
+.player {
+  position: absolute; bottom: 70px; left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: 20px;
+}
+.playerName {
+  position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px; color: #ffff00; white-space: nowrap;
+  text-shadow: 1px 1px 0 #000;
+}
+.playerHead { width: 10px; height: 8px; background: #f4c07a; margin: 0 auto; border: 1px solid #c8924a; }
+.playerBody { width: 12px; height: 8px; background: #2244aa; border: 1px solid #1a3388; margin: 0 auto; }
+
+/* ── Shared legs ── */
+.legs { display: flex; gap: 2px; justify-content: center; margin-top: 1px; }
+.leg, .playerLeg { width: 4px; height: 5px; background: #553300; border: 1px solid #3a2200; }
+
+/* ── Orbs ── */
+.orbs {
+  position: absolute; top: 8px; left: 8px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.orb {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid #4a3728; background: #000;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.orbFill {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  border-radius: 0 0 50% 50%;
+}
+.orbVal {
+  position: relative; z-index: 1;
+  font-size: 9px; color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* ── Minimap ── */
+.minimapWrap { position: absolute; top: 6px; right: 6px; width: 66px; height: 66px; }
+.minimapN {
+  position: absolute; top: -10px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px; color: #ff6600;
+  text-shadow: 1px 1px 0 #000;
+}
+.minimapCircle {
+  width: 66px; height: 66px;
+  background: #1a5c0e; border: 2px solid #4a3728;
+  border-radius: 50%; overflow: hidden; position: relative;
+}
+.mmDot { position: absolute; width: 3px; height: 3px; border-radius: 50%; }
+.mmSelf {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 5px; height: 5px; background: #fff; border-radius: 50%;
+}
+
+/* ── Splats / XP ── */
+.splatContainer { position: absolute; inset: 0; pointer-events: none; }
+
+.hitSplat {
+  position: absolute;
+  width: 22px; height: 22px;
+  background: #cc0000;
+  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  display: flex; align-items: center; justify-content: center;
+  animation: hitAnim 1.5s ease-out forwards;
+  pointer-events: none;
+}
+.hitSplat span {
+  font-size: 9px; color: #fff;
+  font-family: 'Tiny5', monospace;
+  margin-top: 2px;
+}
+@keyframes hitAnim {
+  0%   { opacity: 1; transform: scale(1.2) translateY(0); }
+  20%  { transform: scale(1) translateY(-4px); }
+  100% { opacity: 0; transform: scale(.8) translateY(-20px); }
+}
+
+.xpDrop {
+  position: absolute;
+  font-size: 11px; color: #00ff00;
+  font-family: 'Tiny5', monospace;
+  text-shadow: 1px 1px 0 #000;
+  animation: xpAnim 1.8s ease-out forwards;
+  pointer-events: none;
+  white-space: nowrap;
+}
+@keyframes xpAnim {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-36px); }
+}
+
+/* ── Bottom panel ── */
+.bottomPanel {
+  display: flex;
+  background: #2a1f0e;
+  border-top: 2px solid #4a3728;
+}
+
+/* Chat */
+.chatPanel { flex: 1; border-right: 2px solid #4a3728; }
+.chatHeader {
+  background: #1a0e03;
+  padding: 2px 6px;
+  font-size: 10px; color: #ff9900;
+  border-bottom: 1px solid #4a3728;
+  letter-spacing: .5px;
+}
+.chatLog {
+  height: 80px; padding: 3px 6px;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  gap: 1px; overflow: hidden;
+}
+.chatLine { font-size: 11px; line-height: 1.4; }
+.cnPublic  { color: #ffffff; }
+.cnClan    { color: #7fff00; }
+.cnSystem  { color: #ffff00; }
+.cnMe      { color: #00ffff; }
+
+.chatInputRow {
+  border-top: 1px solid #4a3728;
+  padding: 3px 6px;
+  display: flex; align-items: center; gap: 5px;
+}
+.chatStar { font-size: 10px; color: #ff9900; flex-shrink: 0; }
+.chatTyped {
+  font-size: 11px; color: #fff;
+  font-family: 'Tiny5', monospace;
+  flex: 1; word-break: break-all; min-height: 14px;
+}
+.rsCursor {
+  display: inline-block; width: 6px; height: 11px;
+  background: #fff; vertical-align: middle;
+  animation: blink .8s step-end infinite; margin-left: 1px;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Skills panel */
+.skillPanel {
+  width: 140px; padding: 4px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.skillSlot {
+  display: flex; align-items: center; gap: 3px;
+  padding: 2px 3px;
+  background: #1a0e03; border: 1px solid #4a3728;
+}
+.skillIcon { font-size: 12px; width: 14px; height: 14px; display: flex; align-items: center; justify-content: center; }
+.skillLvl  { font-size: 9px; color: #ffff00; }

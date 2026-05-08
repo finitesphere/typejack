@@ -1,0 +1,41 @@
+.wrap { width: 100%; max-width: 560px; }
+
+.promptDisplay {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: .015em;
+  cursor: text;
+  min-height: 54px;
+  word-break: break-all;
+  user-select: none;
+}
+
+.correct { color: var(--success); }
+.error   { color: var(--danger); text-decoration: underline; text-decoration-color: var(--danger); }
+.pending { color: var(--text-dim); }
+
+.current {
+  color: var(--bg);
+  background: var(--text);
+  border-radius: 2px;
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  text-align: center;
+}
