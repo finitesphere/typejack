@@ -1,6 +1,6 @@
 {
   "name": "typejack",
-  "homepage": "https://finitesphere.github.io/typejack.",
+  "homepage": "https://finitesphere.github.io/typejack",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predeoploy": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
